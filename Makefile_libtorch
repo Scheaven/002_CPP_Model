@@ -1,0 +1,12 @@
+target = myapp
+cc = g++ -std=c++11
+include = -I/home/disk1/data/s_software/CPP11_torch/libtorch/include -I/home/disk1/data/s_software/CPP11_torch/libtorch/include/torch/csrc/api/include
+lib +=-L/home/disk1/data/s_software/CPP11_torch/libtorch/lib -ltorch -lc10 -lpthread 
+flag = -Wl,-rpath=/home/disk1/data/s_software/CPP11_torch/libtorch/lib
+source = ./demo.cpp
+
+$(target): $(source)
+	$(cc) $(source) -o $(target) $(include) $(lib) $(flag)
+
+clean:
+	rm $(target)
