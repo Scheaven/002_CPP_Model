@@ -1,2 +1,4 @@
 002_Byte_utils float和byte流的相互转化（可将包括byte矩阵的创建）
 03_feature_extractor_transform.cpp 特征抽取成torch 然后转化成torch再转话成float/byte流
+04_libtorch_predict libtorch模型推理代码
+05_char2flaot 将opencv中的mat矩阵的char *数据量正则化为float *数据流
