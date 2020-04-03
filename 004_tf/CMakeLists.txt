@@ -29,7 +29,13 @@ include_directories(
 #设置链接库搜索目录，项目中lib路径
 link_directories(${TENSORFLOW_DIR}/tensorflow/contrib/makefile/downloads/nsync/builds/default.linux.c++11)
 link_directories(${TENSORFLOW_DIR}/home/basic/workspace/Scheaven/s_opt/tensorflow-1.13.1/bazel-bin/tensorflow)  #动态链接库目录/bazel-bin/tensorflow
- 
+
+link_directories(${TENSORFLOW_DIR}/tensorflow/contrib/makefile/gen/lib)
+link_directories(${TENSORFLOW_DIR}/tensorflow/contrib/makefile/gen/protobuf-host/lib)
+link_directories(${TENSORFLOW_DIR}/tensorflow/contrib/makefile/downloads/nsync/builds/default.linux.c++11)
+link_directories(${TENSORFLOW_DIR}/bazel-bin/tensorflow)
+
+
 #添加要编译的可执行文件
 #add_executable(demo test.cpp)
 add_executable(demo ${DIR_SRCS})    ## 生成可执行文件
