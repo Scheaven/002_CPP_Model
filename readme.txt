@@ -4,3 +4,4 @@
 05_char2flaot 将opencv中的mat矩阵的char *数据量正则化为float *数据流
 06_ReaderFiles 读取本地文件，并将string 空格分隔后转化为float类型
 07_arg_setting 命令行参数的设定
+09_mul_thread_random 多线程+随机数
