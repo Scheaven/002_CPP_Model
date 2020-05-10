@@ -1,13 +1,9 @@
-#include <stdio.h>
-#include <stdint.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <time.h>
+
  
  
 #include <dlfcn.h>
- 
+#include "nvidia_gpu_util.h" 
+
 namespace gpu{
  
 #define LOAD_FUNC(l, s) dlsym(l, s)
@@ -451,10 +447,3 @@ int test(void)
     
 }
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    int gpu_device = gpu::test();
-    printf("%d\n",gpu_device);
-    return 0;
-}
