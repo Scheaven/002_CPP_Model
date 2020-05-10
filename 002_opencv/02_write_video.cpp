@@ -32,7 +32,7 @@ int main()
     //int myFourCC = VideoWriter::fourcc('X', 'V', 'I', 'D');//avi
     int myFourCC = VideoWriter::fourcc('m', 'p', '4', 'v');//mp4
     //'m', 'p', '4', 'v'//'F','L','V','1'//'m', 'p', '4','2' //'m','p','4','v'//'d','i','v','x'
-    double rate = videoCapture.get(CAP_PROP_FPS);
+    double rate = videoCapture.get(CAP_PROP_FPS); // 可用数字代替 5
     VideoWriter writer("./hello.mp4", myFourCC, rate, size, true);
     if (!videoCapture.isOpened()) {
         cout << "Video not open!" << endl;
