@@ -1,0 +1,14 @@
+{
+  "so_file_path": "/data3/workspace/chenshijun/yolo/yolo/libyolo_tracking.so",
+  "runtime": "/home/basic/test/tensorflow-1.14.0/bazel-bin/tensorflow:/home/basic/test/tensorflow-1.14.0/tensorflow/contrib/makefile/downloads/nsync/builds/default.linux.c++11:/usr/local/cuda-10.0/lib64:/data3/workspace/chenshijun/yolo/yolo/opencv3.4.8/lib",
+  "param": {
+    "cfg_path": "../yoloTrackBasic/cfg/yolov3.cfg",
+    "weights_path": "../yoloTrackBasic/model/yolov3.weights",
+    "tracher_model": "../yoloTrackBasic/model/tracker.pb",
+    "coco_path": "../yoloTrackBasic/cfg/coco.names",
+    "max_cam_num": 8,
+    "detect_gpu_id": 0,
+    "tracher_gpu_id": "/gpu:0",
+    "gpu-memory":"2048"
+  }
+}
