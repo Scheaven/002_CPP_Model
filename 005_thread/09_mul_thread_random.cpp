@@ -52,6 +52,7 @@ int main(int argc, char const *argv[])
 // 	for (int i = 2; i < 5; ++i)
 // 	{
 // 		std::thread threadObj(subthread_function, i);
+////// 		std::thread threadObj(subthread_function, this, i);
 
 // 		vec.emplace_back(std::move(threadObj));
 // 	}
