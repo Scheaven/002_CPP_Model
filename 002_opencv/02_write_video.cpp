@@ -1,4 +1,4 @@
-// Opencv保存摄像头视频为mp4和flv两种格式
+﻿// Opencv保存摄像头视频为mp4和flv两种格式
 // 由于我采用的是opencv4.0,在保存视频的地方遇到了一些坑。
 // 首先，原来的VideoWriter_fourcc没有了，需要使用VideoWriter::fourcc()来定义编码，
 // 具体的编码类型可以在http://www.fourcc.org/codecs.php中查看
@@ -34,6 +34,11 @@ int main()
     //'m', 'p', '4', 'v'//'F','L','V','1'//'m', 'p', '4','2' //'m','p','4','v'//'d','i','v','x'
     double rate = videoCapture.get(CAP_PROP_FPS); // 可用数字代替 5
     VideoWriter writer("./hello.mp4", myFourCC, rate, size, true);
+
+
+    //VideoWriter writer;
+    //writer.open("./sresult.mp4", -1,25,Size(1000,800),true); //注意，写的大小要与设置的画面一样大，否则写入为空
+
     if (!videoCapture.isOpened()) {
         cout << "Video not open!" << endl;
         system("pause");
@@ -50,7 +55,7 @@ int main()
         {
             imshow("frame", frame);
             //writer.write(frame);
-            writer << frame;
+            writer << frame; // 其后不能添加waitKey(1) 否则不能存储
             if (waitKey(20) > 0)break;
         }
         else {
