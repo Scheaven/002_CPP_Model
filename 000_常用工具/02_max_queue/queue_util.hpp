@@ -8,18 +8,8 @@
 #include "stack_util.hpp"
 
 using namespace std;
-/**
- * 最大值队列
-要求
-用o(n)时间查询队列的最大值
 
-算法思想：
-用两个最大值栈模拟队列。入队时把元素压入栈A，出队时弹出B的栈顶。（若B为空，则把A中元素全部弹出压入B再弹出）。取最大值时去A，B中的最大值的最大值。
-
-
- * */
-
-template <typename T> //注意 泛型模板必须把实现方法直接写在头文件里 否则找不到文件定义
+template <typename T>
 class MaxQueue
 {
 private:
@@ -30,12 +20,12 @@ public:
     MaxQueue(){};
     ~MaxQueue(){};
 
-    void push(T ele)
+    void push(T ele) //入队
     {
         stackA.push(ele);
     };
 
-    void pop()
+    void pop() // 出队
     {
         if(stackB.isEmpty())
         {
@@ -54,7 +44,7 @@ public:
     };
 
 
-    T front()
+    T front() // 取第一个元素
     {
         if(stackB.isEmpty())
         {
@@ -71,7 +61,7 @@ public:
         return stackB.top();
     };
 
-    T max()
+    T max() //最值
     {
         if(!stackA.isEmpty()&&!stackB.isEmpty())
         {
@@ -84,6 +74,89 @@ public:
             return stackB.maxItem();
         }
     };
+
+    int size() //大小
+    {
+        return stackA.size()+stackB.size();
+    }
+
+    bool isEmpty()
+    {
+        return stackA.isEmpty()&&stackB.isEmpty();
+    };
+
+};
+
+template <typename T>
+class MinQueue
+{
+private:
+    MinStack<T> stackA;
+    MinStack<T> stackB;
+
+public:
+    MinQueue(){};
+    ~MinQueue(){};
+
+    void push(T ele) //入队
+    {
+        stackA.push(ele);
+    };
+
+    void pop() // 出队
+    {
+        if(stackB.isEmpty())
+        {
+//        if(stackA.isEmpty())
+//        {
+//            return ;
+//        }
+            while (!stackA.isEmpty())
+            {
+                stackB.push(stackA.top());
+                stackA.pop();
+            }
+        }
+
+        stackB.pop();
+    };
+
+
+    T front() // 取第一个元素
+    {
+        if(stackB.isEmpty())
+        {
+//        if(stackA.isEmpty())
+//        {
+//            return ;
+//        }
+            while (!stackA.isEmpty())
+            {
+                stackB.push(stackA.top());
+                stackA.pop();
+            }
+        }
+        return stackB.top();
+    };
+
+    T min() //最值
+    {
+        if(!stackA.isEmpty()&&!stackB.isEmpty())
+        {
+            return stackA.minItem()>stackB.minItem()?stackA.minItem():stackB.minItem();
+        } else if(!stackA.isEmpty()&&stackB.isEmpty())
+        {
+            return stackA.minItem();
+        } else
+        {
+            return stackB.minItem();
+        }
+    };
+
+    int size() //大小
+    {
+        return stackA.size()+stackB.size();
+    }
 
     bool isEmpty()
     {

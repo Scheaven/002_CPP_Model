@@ -33,7 +33,11 @@ private:
     stack<T> _data;
 
 public:
-    void push(T ele)
+    MaxStack(){};
+    ~MaxStack(){};
+
+
+    void push(T ele) //压入
     {
         _data.push(ele);
         if(max_stack.empty() || ele>=max_stack.top())
@@ -42,7 +46,7 @@ public:
         }
     };
 
-    void pop()
+    void pop() //弹出
     {
         T tem = _data.top();
         _data.pop();
@@ -52,7 +56,7 @@ public:
         }
     };
 
-    T top()
+    T top() //获取第一个元素
     {
         return _data.top();
 
@@ -63,9 +67,67 @@ public:
         return _data.empty();
     };
 
-    T maxItem()
+    T maxItem() //取最大元素
     {
         return max_stack.top();
+    };
+
+    int size() //个数
+    {
+        return _data.size();
+    };
+};
+
+
+template <typename T> //注意 泛型模板必须把实现方法直接写在头文件里 否则找不到文件定义
+class MinStack
+{
+private:
+    stack<T> min_stack;
+    stack<T> _data;
+
+public:
+    MinStack(){};
+    ~MinStack(){};
+
+    void push(T ele) //压入
+    {
+        _data.push(ele);
+        if(min_stack.empty() || ele>=min_stack.top())
+        {
+            min_stack.push(ele);
+        }
+    };
+
+    void pop() //弹出
+    {
+        T tem = _data.top();
+        _data.pop();
+        if(tem==min_stack.top())
+        {
+            min_stack.pop();
+        }
+    };
+
+    T top() //获取第一个元素
+    {
+        return _data.top();
+
+    };
+
+    bool isEmpty()
+    {
+        return _data.empty();
+    };
+
+    T minItem() //取最大元素
+    {
+        return min_stack.top();
+    };
+
+    int size() //个数
+    {
+        return _data.size();
     };
 };
 
