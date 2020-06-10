@@ -143,7 +143,7 @@ public:
     {
         if(!stackA.isEmpty()&&!stackB.isEmpty())
         {
-            return stackA.minItem()>stackB.minItem()?stackA.minItem():stackB.minItem();
+            return stackA.minItem()<stackB.minItem()?stackA.minItem():stackB.minItem();
         } else if(!stackA.isEmpty()&&stackB.isEmpty())
         {
             return stackA.minItem();

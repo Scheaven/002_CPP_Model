@@ -93,7 +93,7 @@ public:
     void push(T ele) //压入
     {
         _data.push(ele);
-        if(min_stack.empty() || ele>=min_stack.top())
+        if(min_stack.empty() || ele<=min_stack.top())
         {
             min_stack.push(ele);
         }
