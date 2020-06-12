@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by Scheaven on 2020/6/8.
 //
 
@@ -8,7 +8,16 @@
 #include "stack_util.hpp"
 
 using namespace std;
+/**
+ * 最大值队列
+要求
+用o(n)时间查询队列的最大值
 
+算法思想：
+用两个最大值栈模拟队列。入队时把元素压入栈A，出队时弹出B的栈顶。（若B为空，则把A中元素全部弹出压入B再弹出）。取最大值时去A，B中的最大值的最大值。
+
+
+ * */
 template <typename T>
 class MaxQueue
 {
