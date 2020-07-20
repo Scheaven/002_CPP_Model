@@ -1,8 +1,9 @@
-002_Byte_utils float和byte流的相互转化（可将包括byte矩阵的创建）
+﻿002_Byte_utils float和byte流的相互转化（可将包括byte矩阵的创建）
 03_feature_extractor_transform.cpp 特征抽取成torch 然后转化成torch再转话成float/byte流
 04_libtorch_predict libtorch模型推理代码
 05_char2flaot 将opencv中的mat矩阵的char *数据量正则化为float *数据流
 06_ReaderFiles 读取本地文件，并将string 空格分隔后转化为float类型
 07_arg_setting 命令行参数的设定
 09_json_file.cpp 从文本、文件、字符串中读取json格式数据
+011_str_trim.cpp 去掉字符串首尾的异常字符
 
