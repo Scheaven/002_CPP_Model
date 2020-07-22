@@ -1,0 +1,7 @@
+#include <thread >
+
+std::thread t([&]{
+     buildMaps(imgs_vec, a, b); //方法 参数信息
+});
+
+t.join();//暂时了解的主程序不等待是什么都不写
