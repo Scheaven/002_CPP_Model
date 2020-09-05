@@ -23,3 +23,22 @@ string map_json(map<int,int> s_map)
     }
     return json;
 }
+
+
+void readStrProJson()
+{
+	string strValue = "{\"name\":\"shuiyixin\",\"major\":[{\"AI\":\"MachineLearning\"},{\"AI\":\"DeepLearning\"},{\"AI\":\"ComputerVision\"}]}";
+	Json::Reader reader;
+	Json::Value value;
+	if (reader.parse(strValue, value))
+	{
+		string out = value["name"].asString();
+		cout << out << endl;
+		const Json::Value arrayObj = value["major"];
+		for (unsigned int i = 0; i < arrayObj.size(); i++)
+		{
+			out = arrayObj[i]["AI"].asString();
+			cout << out<<endl;
+		}
+	}
+}
