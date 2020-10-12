@@ -4,7 +4,7 @@ double feature_distance(FEATURE feat1, FEATURE feat2)
 
     //将float格式的特征转化为tensor格式的特征
  
-   double FeatA, FeatB, score;
+   double FeatA=0.0, FeatB=0.0, score=0.0;
 
    for (int i = 0; i < 128; i++)
 
