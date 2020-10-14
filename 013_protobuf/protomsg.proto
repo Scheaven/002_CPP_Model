@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package protomsg;
+
+//option optimize_for = LITE_RUNTIME;
+
+message Image {
+    int32 width = 1;
+    int32 height = 2;
+    bytes data = 3;
+
+    string timestamp = 4;
+    int64 id = 5;
+    string cid = 6;
+    string cname = 7;
+}
+
+message Rect{
+    int32 left = 1;
+    int32 top = 2;
+    int32 right = 3;
+    int32 bottom = 4;
+}
+
+message Target{
+    uint64 id = 1;
+    string type = 2;
+    int32 confidence = 3;
+    Rect rect = 4;
+    bytes feature= 5;
+    bytes attribute = 6;
+}
+
+message SDKMessage{
+    string sdkID = 1;
+    string sdkType = 2;
+    string sdkName = 3;
+    repeated Target target = 4;
+    string timestamp = 5;
+}
+
+message RuleMessage{
+    string dataType = 1;
+    string handleTrack = 2;
+    repeated SDKMessage message = 3;
+}
