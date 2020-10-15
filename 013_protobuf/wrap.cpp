@@ -156,6 +156,6 @@ int c_wrap_protobuf_last_sdkmsg_targets_get(void *rmsg, const int index,
     *r = target.rect().right();
     *b = target.rect().bottom();
     *confidence = target.confidence();
-
+    h_detection.human_face.feature = (BYTE*)(target.feature().data()); // 将protobuf中的string或者bytes转化成C++中的BYTE(unsigned char*)
     return 0;
 }
