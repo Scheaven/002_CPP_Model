@@ -50,3 +50,17 @@ static void copyFile(const std::string& fileNameFrom, const std::string& fileNam
     out.close();
     in.close();
 }
+
+void globFile(string path, std::vector<string> res_vec)
+{
+    printf("------------%s\n", "ioio");
+}
+
+int main(int argc, char const *argv[])
+{
+    /* code */
+    string path="/data/disk2/01_dataset/03_human/02_person/";
+    std::vector<string> video_path_vec;
+    globFile(path, video_path_vec);
+    return 0;
+}
